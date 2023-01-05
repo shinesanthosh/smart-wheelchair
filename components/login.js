@@ -7,7 +7,7 @@ const Login = () => {
     <div className={classes.container}>
       <div className={classes.box}>
         Please Login to continue
-        <Link href="/login">Login</Link>
+        <Link href="/api/auth/login">Login</Link>
       </div>
     </div>
   )
