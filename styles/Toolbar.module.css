@@ -1,0 +1,50 @@
+.container{
+    box-shadow: 0px 5px 20px #fff9;
+    color: #fff;
+    min-height:3em;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 12px 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.title{
+    font-size: 2em;
+    text-align: center;
+}
+
+.profile{
+    height: 2.5em;
+    cursor: pointer;
+}
+
+.profileMenu{
+    position: absolute;
+    top: 5em;
+    right: 3%;
+    list-style-type: none;
+    border: 1px solid #fff;
+    border-radius: 0.5em;
+    padding: 1% 0;
+    width: 15em;
+}
+
+.profileMenu > li{
+    padding: 10% 20%;
+}
+
+.profileMenu > li:hover{
+    background: #fff3;
+}
+
+.profileMenu>li *{
+    text-decoration: none;
+    color: #fff;
+}
+
+.hidd{
+    display: none;
+}
