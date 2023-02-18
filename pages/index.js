@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css"
 import { useUser } from "@auth0/nextjs-auth0/client"
 import Router from "next/router"
 
-import Login from "../components/login"
+import Login from "../components/login_prompt"
 
 const inter = Inter({ subsets: ["latin"] })
 
