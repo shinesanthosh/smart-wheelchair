@@ -1,23 +1,24 @@
-import React,{useEffect} from "react"
+import React, { useEffect } from "react"
 import useStorage from "../hooks/useStorage"
 import Router from "next/router"
 
 const Logout = () => {
+  const { setItem, removeItem } = useStorage()
 
-  const { setItem } = useStorage()
+  useEffect(() => {
+    clearData()
+  }, [])
 
-    useEffect(()=>{clearData()},[])
-    
-    const clearData = async () => {
-        await setItem("access", undefined, "session")
-        await setItem("id_token", undefined, "session")
-        await setItem("refresh", undefined, "local")
+  const clearData = async () => {
+    await removeItem("access", "session")
+    await removeItem("id_token", "session")
+    await removeItem("refresh", "local")
 
-          Router.push(
-            process.env.NEXT_PUBLIC_AUTH0_ISSUER_BASE_URL +
-              `/v2/logout?client_id=${process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}`
-          )
-    }
+    Router.push(
+      process.env.NEXT_PUBLIC_AUTH0_ISSUER_BASE_URL +
+        `/v2/logout?client_id=${process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}`
+    )
+  }
 
   return <div>Please Wait...</div>
 }

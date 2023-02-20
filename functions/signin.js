@@ -22,8 +22,8 @@ const signin = async (username, password) => {
   await axios
     .request(options)
     .then(function (response) {
-      console.log("Auth response")
-      console.log(response.data)
+      // console.log("Auth response")
+      // console.log(response.data)
       result = { type: "Succ", token: response.data }
     })
     .catch(function (error) {

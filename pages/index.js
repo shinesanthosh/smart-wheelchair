@@ -13,18 +13,20 @@ export default function Home() {
   const { user, error, isLoading } = useUser()
   const { getItem } = useStorage()
 
-
   const [displayState, setDisplayState] = useState(0)
 
   useEffect(() => {
-    if (getItem("access", "session") == "undefined") setDisplayState(1)
-      else if(getItem("access", "session").length > 9) setDisplayState(2)
+    // console.log(getItem("access", "session"))
+    // console.log("---")
+    // console.log(typeof getItem("access", "session"))
+
+    if (getItem("access", "session") == undefined) setDisplayState(1)
+    else if (getItem("access", "session").length > 9) setDisplayState(2)
     else setDisplayState(100)
-    
   }, [])
 
   if (displayState == 0) return <div>Loading...</div>
   else if (displayState == 1) return <Login />
-    else if(displayState == 2) Router.push('/dashboard')
+  else if (displayState == 2) Router.push("/dashboard")
   else return <h1>Some error occured ☹️</h1>
 }
