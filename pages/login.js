@@ -5,7 +5,7 @@ import signin from "../functions/signin"
 import { useCookies } from "react-cookie"
 import Router from "next/router"
 import useStorage from '../hooks/useStorage'
-const {getItem,setItem}  = useStorage()
+
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -13,6 +13,7 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState("")
   const [submitEnabled, setSubmitEnabled] = useState(true)
   const [cookies, setCookies] = useCookies("appSession")
+  const {getItem,setItem}  = useStorage()
 
   const validatePassword = (pass) => {
     if (pass.length < 6) {
