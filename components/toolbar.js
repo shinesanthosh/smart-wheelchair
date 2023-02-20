@@ -36,7 +36,7 @@ const Toolbar = ({ user }) => {
         <li>View Profile</li>
         <li>Change Password</li>
         <li>
-          <Link href={"/api/auth/logout"}>Logout</Link>
+          <Link href={"/logout"}>Logout</Link>
         </li>
       </ul>
     </div>
