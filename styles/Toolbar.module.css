@@ -1,51 +1,133 @@
-.container{
-    box-shadow: 0px 5px 20px #fff9;
-    color: #fff;
-    min-height:3em;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    padding: 12px 5%;
-    justify-content: space-between;
-    align-items: center;
+.container {
+  box-shadow: 0px 5px 20px #fff9;
+  color: #000;
+  min-height: 3em;
+  max-height: 5vh;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 12px 5%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 10px 10px 20px #0003;
 }
 
-
-.title{
-    font-size: 1.8em;
-    text-align: center;
-    letter-spacing: 0.2em;
+.title {
+  font-size: 1.8em;
+  text-align: center;
+  letter-spacing: 0.2em;
 }
 
-.profile{
-    height: 2.5em;
-    cursor: pointer;
+.navBarLogo {
+  width: 4%;
 }
 
-.profileMenu{
-    position: absolute;
-    top: 5em;
-    right: 3%;
-    list-style-type: none;
-    border: 1px solid #fff;
-    border-radius: 0.5em;
-    padding: 1% 0;
-    width: 15em;
+.profile {
+  height: 2.5em;
+  cursor: pointer;
 }
 
-.profileMenu > li{
-    padding: 10% 20%;
+.profileMenu {
+  position: absolute;
+  top: 5em;
+  right: 3%;
+  list-style-type: none;
+  border: 1px solid #000;
+  border-radius: 0.5em;
+  padding: 1% 0;
+  background: #fff;
+  width: 15em;
+  box-shadow: 10px 10px 20px #0003;
 }
 
-.profileMenu > li:hover{
-    background: #fff3;
+.profileMenu > li {
+  padding: 10% 20%;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.profileMenu>li *{
-    text-decoration: none;
-    color: #fff;
+.profileMenu > li:hover {
+  background: #3333;
 }
 
-.hidd{
-    display: none;
+.profileMenu > li * {
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s;
+}
+
+.profileMenu > li *:hover {
+  color: #204f87;
+  padding-left: 5%;
+}
+
+.hidd {
+  display: none;
+}
+
+.bars {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.bar1c {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.bar2c {
+  opacity: 0;
+}
+
+.bar3c {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.navMenu {
+  height: 100vh;
+  max-height: 100vh;
+  width: 25vw;
+  margin: 0;
+  box-shadow: 10px 10px 20px #0003;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transition: 1s;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+.navHidd {
+  left: -100%;
+}
+
+.navMenu > li {
+  font-size: 1.5em;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  padding: 5% 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navMenu > li:hover {
+  background: #0003;
+  color: #204f87;
+  padding-right: 5%;
 }

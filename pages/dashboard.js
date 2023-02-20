@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client"
 import Toolbar from "../components/toolbar"
 import getUser from "../functions/getUser"

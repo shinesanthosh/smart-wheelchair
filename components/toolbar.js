@@ -7,23 +7,77 @@ import styles from "../styles/Toolbar.module.css"
 
 const Toolbar = ({ user }) => {
   const [profileMenuStatus, setProfileMenuStatus] = useState(false)
+  const [navMenuStatus, setNavMenuStatus] = useState(false)
 
   return (
     <div className={styles.container}>
       {/* <FontAwesomeIcon icon={faBars} size="2x" /> */}
-      <div className='container' onclick='myFunction(this)'>
-        <div className='bar1'></div>
-        <div className='bar2'></div>
-        <div className='bar3'></div>
+      <div
+        className={styles.bars}
+        onClick={() => {
+          setNavMenuStatus(!navMenuStatus)
+        }}>
+        <div
+          className={
+            navMenuStatus ? `${styles.bar1} ${styles.bar1c}` : `${styles.bar1}`
+          }></div>
+        <div
+          className={
+            navMenuStatus ? `${styles.bar2} ${styles.bar2c}` : `${styles.bar2}`
+          }></div>
+        <div
+          className={
+            navMenuStatus ? `${styles.bar3} ${styles.bar3c}` : `${styles.bar3}`
+          }></div>
       </div>
 
-      <span className={styles.title}>Wheelchair Monitoring</span>
+      <ul
+        className={
+          navMenuStatus ? styles.navMenu : `${styles.navMenu} ${styles.navHidd}`
+        }>
+        
+        <div
+          className={styles.bars}
+          onClick={() => {
+            setNavMenuStatus(!navMenuStatus)
+          }}>
+          <div
+            className={
+              navMenuStatus
+                ? `${styles.bar1} ${styles.bar1c}`
+                : `${styles.bar1}`
+            }></div>
+          <div
+            className={
+              navMenuStatus
+                ? `${styles.bar2} ${styles.bar2c}`
+                : `${styles.bar2}`
+            }></div>
+          <div
+            className={
+              navMenuStatus
+                ? `${styles.bar3} ${styles.bar3c}`
+                : `${styles.bar3}`
+            }></div>
+        </div>
+        <li>Add Wheelchair</li>
+        <li> View Wheelchairs</li>
+        <li>Delete Wheelchair</li>
+
+        
+      </ul>
+
+      <img src='/logo.png' className={styles.navBarLogo} />
+      {/* <span className={styles.title}>Wheelchair Monitoring</span> */}
 
       <img
         className={styles.profile}
-        src={user ? user.picture : ''}
+        src={user ? user.picture : ""}
         onClick={() => {
           setProfileMenuStatus(!profileMenuStatus)
+        }}
+        onBlur={() => {
+          setProfileMenuStatus(false)
         }}
       />
 
@@ -32,9 +86,16 @@ const Toolbar = ({ user }) => {
           profileMenuStatus
             ? styles.profileMenu
             : `${styles.profileMenu} ${styles.hidd}`
-        }>
-        <li>View Profile</li>
-        <li>Change Password</li>
+        }
+        onBlur={() => {
+          setProfileMenuStatus(false)
+        }}>
+        <li>
+          <Link href='#'>View Profile</Link>
+        </li>
+        <li>
+          <Link href='#'>Change Password</Link>
+        </li>
         <li>
           <Link href={"/logout"}>Logout</Link>
         </li>
