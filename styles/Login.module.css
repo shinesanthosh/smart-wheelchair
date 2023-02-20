@@ -1,0 +1,88 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(
+    45deg,
+    var(--prim-dark) 50%,
+    var(--prim-light) 100%
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  border: 1px solid #eee;
+  width: 70%;
+  align-items: center;
+  box-shadow: 5px 5px 10px 5px #0003;
+  min-height: 80vh;
+  background: #fff;
+}
+
+.banner {
+  width: 100%;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--prim-dark);
+}
+
+.right > input {
+  width: 80%;
+  margin: 5% 0;
+  padding: 2% 1%;
+  border: 2px solid var(--prim-dark);
+  transition: 0.2s;
+  font-size: 1.2em;
+  outline: none;
+}
+
+.right > input[type="text"],
+.right > input[type="password"] {
+  border: none;
+  border-bottom: 2px solid var(--prim-light);
+}
+
+.right > input[type="text"]:focus,
+.right > input[type="password"]:focus {
+  /* border: 2px solid var(--prim-dark); */
+  padding: 3% 2%;
+  box-shadow: 20px 20px 10px 5px #0003;
+  /* border-bottom: 3px solid var(--prim-dark); */
+}
+
+.right > input[type="button"] {
+  width: 50%;
+  background: #0000;
+  transition: 0.3s;
+}
+
+.buttonEnabled {
+  cursor: pointer;
+}
+
+.buttonDisabled {
+  cursor: no-drop;
+}
+
+.right > input[type="button"]:hover {
+  background: var(--prim-dark);
+  color: #fff;
+}
+
+.errMsg {
+  color: #f00;
+}
