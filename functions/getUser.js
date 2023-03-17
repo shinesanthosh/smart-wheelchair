@@ -4,7 +4,7 @@ const { getItem } = useStorage()
 
 const getUser = new Promise((resolve, reject) => {
   const token = getItem("access", "session")
-  if (token == undefined) return { type: "error", msg: "token_nil" }
+  if (token == undefined) reject ({ type: "error", msg: "token_nil" })
   let result = {}
   var options = {
     method: "GET",

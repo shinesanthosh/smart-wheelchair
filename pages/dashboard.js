@@ -7,6 +7,7 @@ import Devices from '../components/device_list'
 import Add from '../components/add_device'
 
 import styles from '../styles/Dashboard.module.css'
+import Router from 'next/router'
 
 export default function Dashboard() {
   // const { user, error, isLoading } = useUser()
@@ -22,13 +23,16 @@ export default function Dashboard() {
     userDetails
       .then((res) => {
         setUser(res)
+        
         if (res.devices.length < 1) {
           setPageState(0)
         } else {
           setPageState(1)
         }
       })
-      .catch((e) => console.error('Error from promise: ', e))
+      .catch((e) => {
+        if (e.type == 'auth_error') Router.push('/')
+      })
   }, [])
 
   let dashboardData
