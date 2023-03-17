@@ -1,0 +1,29 @@
+.container{
+    width: 80%;
+    height: 0.2em;
+    margin-top: 20%;
+    background: var(--prim-light);
+    overflow: hidden;
+
+}
+
+.bar{
+    height: 100%;
+    background: var(--prim-dark);
+    width: 25%;
+    animation: tonfro 3s infinite;
+}
+
+@keyframes tonfro{
+    0%{
+        transform: translate(-50%,0);
+    }
+
+    50%{
+        transform: translate(350%,0);
+    }
+
+    100%{
+        transform: translate(-50%,0);
+    }
+}
