@@ -131,3 +131,15 @@
   color: #204f87;
   padding-right: 5%;
 }
+
+@media screen and (max-width:850px){
+  .navBarLogo{
+    width:10%;
+    /* visibility: hidden; */
+
+  }
+
+  .navMenu{
+    width: 100vw;
+  }
+}
