@@ -11,7 +11,7 @@ const Login = () => {
         <div className={classes.content}>
           <h1 className={classes.title}>Smart Wheelchair</h1>
           <p className={classes.desc}>
-            The smart wheelchair can change your lives. Control the wheelchair with your gestures or joystick. Monitor the health of the wheelchair user. Get notifications during emergency conditions. You can always monitor your loved ones. But before that, you&quot;ve to login.
+            The smart wheelchair can change your lives. Control the wheelchair with your gestures or joystick. Monitor the health of the wheelchair user. Get notifications during emergency conditions. You can always monitor your loved ones. But before that, you&apos;ve to login.
           </p>
           <Link href='/login' className={classes.login}>Login</Link>
 
