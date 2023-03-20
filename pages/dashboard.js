@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Toolbar from '../components/toolbar'
-import userDetails from './api/user/getdetails'
+import userDetails from '../functions/user/getdetails'
 
 import Loading from '../components/loading'
 import Devices from '../components/device_list'

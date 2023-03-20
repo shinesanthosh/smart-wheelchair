@@ -1,4 +1,4 @@
-import getUser from '../../../functions/getUser'
+import getUser from '../getUser'
 
 const fetchDB = async (email) => {
   let res
