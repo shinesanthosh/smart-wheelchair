@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
         safari_web_id:
           'web.onesignal.auto.6b1e0125-c07a-4d4d-8123-db80df1063df',
         notifyButton: {
-          enable: true,
+          enable: false,
         },
       })
     })
