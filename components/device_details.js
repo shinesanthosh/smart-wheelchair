@@ -4,11 +4,15 @@ import styles from '../styles/Device_details.module.css'
 import getLog from '../functions/user/getLog'
 import Image from 'next/image'
 import getDevice from '../functions/device/getDetails'
+// import Chart from './chart_test'
 
 const Details = ({ device, setDisplayState, setSelectedDevice }) => {
   const [dataList, setDataList] = useState([])
   const [deviceDetails, setDeviceDetails] = useState({})
-  
+
+  const sparr = [],
+    hrarr = [],
+    temparr = []
 
   useEffect(() => {
     getLog(device.device_id)
@@ -21,12 +25,32 @@ const Details = ({ device, setDisplayState, setSelectedDevice }) => {
       .catch((e) => console.error(e))
   }, [])
 
+  if (dataList.length >= 1) {
+    dataList.map((val) => {
+      let seconds = Math.floor(new Date(val.timeseries).getTime()) / 1000 
+      sparr.push({
+        x: val.spo,
+        y:seconds 
+      })
+      hrarr.push({
+        x: val.hr,
+        y:seconds 
+      })
+      temparr.push({
+        x: val.temp,
+        y:seconds 
+      })
+    })
+
+    console.log('SP:', sparr, ' HR: ', hrarr, ' Temp: ', temparr)
+  }
+
   const back = () => {
     setSelectedDevice('')
     setDisplayState(false)
   }
 
-  // console.log('Data list: ', dataList)
+  console.log('Data list: ', dataList)
 
   return (
     <div className={styles.container}>

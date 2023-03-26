@@ -104,3 +104,14 @@
     width: 100%;
   }
 }
+
+.pswdconditions{
+  overflow: hidden;
+  height: auto;
+  transition: 1s;
+}
+
+.pswdhidd{
+  height: 0;
+  display: none;
+}

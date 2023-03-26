@@ -5,6 +5,7 @@ import signin from "../functions/signin"
 import { useCookies } from "react-cookie"
 import Router from "next/router"
 import useStorage from "../hooks/useStorage"
+import Link from "next/link"
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -106,8 +107,9 @@ const Login = () => {
               type='button'
               value='Login'
               onClick={submitHandler}
-              // disabled={!submitEnabled}
+              disabled={!submitEnabled}
             />
+            <Link href='/signup' >New User? Sign Up</Link>
           </div>
         </div>
       </div>
