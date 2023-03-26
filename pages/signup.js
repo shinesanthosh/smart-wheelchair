@@ -138,7 +138,10 @@ const Signup = () => {
           else setErrMsg('Invalid Password')
         } else if (er.response.data.code == 'invalid_signup')
           setErrMsg('Seems like the account already exists ')
-        else setErrMsg('Some unexpected error occured')
+        else {
+          setErrMsg('Some unexpected error occured')
+          console.log('UE', er)
+        }
       })
   }
 
