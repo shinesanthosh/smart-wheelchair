@@ -12,9 +12,9 @@ const Toolbar = ({ user }) => {
 
       OneSignal.showNativePrompt();
 
-      OneSignal.getUserId()
-        .then((id) => console.log('Player id: ', id))
-        .catch((e) => console.warn('id error: ', e))
+      OneSignal.push(function() {
+        OneSignal.setExternalUserId(user.email);
+      });
     },
     []
   )
