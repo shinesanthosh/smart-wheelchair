@@ -6,18 +6,21 @@ import Link from 'next/link'
 import styles from '../styles/Toolbar.module.css'
 
 const Toolbar = ({ user }) => {
-  useEffect(
-    () => {
-      console.log("Starting user fetch")
+  if (user) {
+    OneSignal.push(function () {
+      OneSignal.setExternalUserId(user.email)
+    })
 
-      OneSignal.showNativePrompt();
+    OneSignal.push(function () {
+      OneSignal.getExternalUserId().then(function (externalUserId) {
+        console.log('externalUserId: ', externalUserId)
+      })
+    })
+  }
 
-      OneSignal.push(function() {
-        OneSignal.setExternalUserId(user.email);
-      });
-    },
-    []
-  )
+  useEffect(() => {
+    OneSignal.showNativePrompt()
+  }, [])
 
   const [profileMenuStatus, setProfileMenuStatus] = useState(false)
   const [navMenuStatus, setNavMenuStatus] = useState(false)
