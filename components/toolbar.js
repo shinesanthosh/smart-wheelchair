@@ -1,11 +1,20 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
-import React, { useState } from "react"
-import Link from "next/link"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
-import styles from "../styles/Toolbar.module.css"
+import styles from '../styles/Toolbar.module.css'
 
 const Toolbar = ({ user }) => {
+  useEffect(
+    () => async () => {
+      OneSignal.getUserId()
+        .then((id) => console.log('Player id: ', id))
+        .catch((e) => console.warn('id error: ', e))
+    },
+    []
+  )
+
   const [profileMenuStatus, setProfileMenuStatus] = useState(false)
   const [navMenuStatus, setNavMenuStatus] = useState(false)
 
@@ -35,7 +44,6 @@ const Toolbar = ({ user }) => {
         className={
           navMenuStatus ? styles.navMenu : `${styles.navMenu} ${styles.navHidd}`
         }>
-        
         <div
           className={styles.bars}
           onClick={() => {
@@ -63,16 +71,15 @@ const Toolbar = ({ user }) => {
         <li>Add Wheelchair</li>
         <li> View Wheelchairs</li>
         <li>Delete Wheelchair</li>
-
-        
       </ul>
 
       <img src='/logo.png' className={styles.navBarLogo} />
       {/* <span className={styles.title}>Wheelchair Monitoring</span> */}
 
+      {/* eslint-disable-next-line */}
       <img
         className={styles.profile}
-        src={user ? user.picture : ""}
+        src={user ? user.picture : ''}
         onClick={() => {
           setProfileMenuStatus(!profileMenuStatus)
         }}
@@ -97,7 +104,7 @@ const Toolbar = ({ user }) => {
           <Link href='#'>Change Password</Link>
         </li>
         <li>
-          <Link href={"/logout"}>Logout</Link>
+          <Link href={'/logout'}>Logout</Link>
         </li>
       </ul>
     </div>
