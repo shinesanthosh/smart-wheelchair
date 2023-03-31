@@ -10,6 +10,8 @@ const Toolbar = ({ user }) => {
     () => {
       console.log("Starting user fetch")
 
+      OneSignal.showNativePrompt();
+
       OneSignal.getUserId()
         .then((id) => console.log('Player id: ', id))
         .catch((e) => console.warn('id error: ', e))
