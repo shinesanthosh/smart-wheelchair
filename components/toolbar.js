@@ -7,7 +7,9 @@ import styles from '../styles/Toolbar.module.css'
 
 const Toolbar = ({ user }) => {
   useEffect(
-    () => async () => {
+    () => {
+      console.log("Starting user fetch")
+
       OneSignal.getUserId()
         .then((id) => console.log('Player id: ', id))
         .catch((e) => console.warn('id error: ', e))
