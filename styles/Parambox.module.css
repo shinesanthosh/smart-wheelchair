@@ -70,6 +70,13 @@
   
   .expanded{
     height: auto !important;
+    
+    width: 100vw !important;
+    height: 100vh !important;
+    background: #fff !important;
+    z-index: 100;
+
+
   }
 
 
