@@ -17,17 +17,17 @@ const Details = ({ device, setDisplayState, setSelectedDevice }) => {
 
   useEffect(() => {
     getLog(device.device_id)
-      .then((res) => setDataList(res))
-      .catch((e) => console.error(e))
+      .then(res => setDataList(res))
+      .catch(e => console.error(e))
     getDevice(device.device_id)
-      .then((res) => {
+      .then(res => {
         setDeviceDetails(res)
       })
-      .catch((e) => console.error(e))
+      .catch(e => console.error(e))
   }, [])
 
   if (dataList.length >= 1) {
-    dataList.map((val) => {
+    dataList.map(val => {
       let seconds = new Date(val.timeseries).toISOString()
       sparr.push({
         x: val.spo,
@@ -63,10 +63,22 @@ const Details = ({ device, setDisplayState, setSelectedDevice }) => {
         <div
           className={styles.streamContainer}
           onClick={() => {
-            window.open(deviceDetails.stream, '_blank')
+            if (deviceDetails.last_update.includes('seconds'))
+              window.open(deviceDetails.stream, '_blank')
           }}>
           <img src={'/video-camera.png'} />
-          <span>Last seen {deviceDetails.last_update} ago</span>
+          <span>
+            {/* Display only if deviceDetails.last_update is defined */}
+
+            {deviceDetails.last_update
+              ? 'Last seen ' + deviceDetails.last_update + ' ago'
+              : null}
+          </span>
+          {/* Span to say offline if deviceDetails.last_update doesn't include 'seconds*/}
+          {deviceDetails.last_update &&
+          !deviceDetails.last_update.includes('seconds') ? (
+            <span className={styles.offline}>Offline</span>
+          ) : null}
         </div>
         <ParamBox data={hrarr} type={'hr'}>
           Heart Rate

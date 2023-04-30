@@ -16,7 +16,6 @@ const ParamBox = ({ children, data, type }) => {
   if (type == 'hr') unit = ' bpm'
   else if (type == 'sp') unit = '%'
   else if (type == 'temp') unit = '°F'
-  console.log(type, unit)
 
   return (
     <div
@@ -40,7 +39,7 @@ const ParamBox = ({ children, data, type }) => {
         </>
       )}
 
-      {expanded && <Chart data={data} type={type} />}
+      {expanded && <Chart data={data.slice().reverse()} type={type} />}
     </div>
   )
 }

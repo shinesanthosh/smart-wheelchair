@@ -11,6 +11,8 @@ import {
 } from 'recharts'
 
 const Chart = ({ data, type }) => {
+  console.log(data)
+
   const legenFormatter = (value, entry, index, color) => {
     if (type == 'hr') return ['Heart Rate']
     else if (type == 'sp') return ['SpO2']
