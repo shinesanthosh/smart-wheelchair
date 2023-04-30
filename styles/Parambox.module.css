@@ -1,0 +1,68 @@
+.container {
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.container > h1 {
+  margin: 50% 0;
+  transition: 0.3s;
+}
+
+.container > span {
+  transition: 0.3s;
+}
+
+.container:hover > h1 {
+  margin: 0;
+  transform: translateY(-100%);
+  font-size: 1.5em;
+}
+
+.expanded{
+
+  width: 100vw;
+  height: 100vh !important;
+  /* background-color:#0000001b; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+}
+
+.expanded>h1{
+  margin: 0;
+  transform: translateY(-100%);
+  font-size: 1.5em;
+}
+
+.reading {
+    /* animation: heartbeat infinite 1s; */
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+@keyframes heartbeat {
+  0% {
+    color: #000;
+  }
+
+  25% {
+    color: #f009;
+  }
+
+  50% {
+    color: #f00;
+  }
+
+  75% {
+    color: #000;
+  }
+
+  100% {
+    color: #000;
+  }
+}
+
+.container:hover > span {
+}

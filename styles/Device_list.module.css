@@ -23,21 +23,32 @@
   /* overflow-y: scroll; */
 }
 
-.devices{
-    border: 3px solid #000;
-    padding: 2%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 2%;
-    min-width: 200px;
-    cursor: pointer;
-    transition: 0.3s;
+.devices {
+  border: 3px solid #000;
+  padding: 2%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2%;
+  min-width: 200px;
+  cursor: pointer;
+  transition: 0.3s;
 }
-.devices:hover{
-    background: #9992;
-    transform: translateY(-5px);
+.devices:hover {
+  background: #9992;
+  transform: translateY(-5px);
+}
 
+.statusdot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.statusdotactive{
+  background-color: #16af16;
 }

@@ -54,10 +54,39 @@
   transition: 0.3s;
 }
 
-.cardContainer > div:hover{
+.cardContainer > div:hover {
   background: #9993;
 }
 
-.streamContainer >img {
-max-width: 10%;
+
+.streamContainer>span{
+  margin: 5%;
+  text-align: center;
 }
+
+.streamContainer > img {
+  max-width: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .cardContainer > div {
+    width: 90%;
+  }
+
+  .streamContainer > span {
+    font-size: 1.2rem;
+  }
+
+  .streamContainer > img {
+    max-width: 20%;
+  }
+}
+
+
+@media screen and (max-width:750px) and (min-width:550px) {
+ 
+  .streamContainer > img {
+    max-width: 10%;
+  }
+}
+  

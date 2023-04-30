@@ -15,6 +15,8 @@ const Devices = ({ user }) => {
 
   let device_list = []
   user.devices.map((device, key) => {
+console.log(device)
+
     device_list.push(
       <div className={styles.devices} key={key}>
         <Image
@@ -27,6 +29,7 @@ const Devices = ({ user }) => {
           }}
         />
         <h4>{device.nickname}</h4>
+        {/* <span className={`${styles.statusdot} ${styles.statusdotactive}`}></span> */}
       </div>
     )
   })

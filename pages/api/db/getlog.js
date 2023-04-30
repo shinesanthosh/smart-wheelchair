@@ -19,7 +19,9 @@ const handler = async (req, res) => {
       await db
         .collection('health-log')
         .find({ metadata: { device: body.device } })
-        .forEach((doc) => userData.push(doc))
+        .sort({ timeseries: -1 })
+        .limit(15)
+        .forEach(doc => userData.push(doc))
       if (userData.length < 1) {
         res.send({ title: 'error', type: 'userna', body: 'No user found' })
       } else {

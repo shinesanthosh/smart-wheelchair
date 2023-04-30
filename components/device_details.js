@@ -4,6 +4,7 @@ import styles from '../styles/Device_details.module.css'
 import getLog from '../functions/user/getLog'
 import Image from 'next/image'
 import getDevice from '../functions/device/getDetails'
+import ParamBox from './parameter_box'
 // import Chart from './chart_test'
 
 const Details = ({ device, setDisplayState, setSelectedDevice }) => {
@@ -27,30 +28,26 @@ const Details = ({ device, setDisplayState, setSelectedDevice }) => {
 
   if (dataList.length >= 1) {
     dataList.map((val) => {
-      let seconds = Math.floor(new Date(val.timeseries).getTime()) / 1000 
+      let seconds = new Date(val.timeseries).toISOString()
       sparr.push({
         x: val.spo,
-        y:seconds 
+        y: seconds,
       })
       hrarr.push({
         x: val.hr,
-        y:seconds 
+        y: seconds,
       })
       temparr.push({
         x: val.temp,
-        y:seconds 
+        y: seconds,
       })
     })
-
-    console.log('SP:', sparr, ' HR: ', hrarr, ' Temp: ', temparr)
   }
 
   const back = () => {
     setSelectedDevice('')
     setDisplayState(false)
   }
-
-  console.log('Data list: ', dataList)
 
   return (
     <div className={styles.container}>
@@ -71,9 +68,15 @@ const Details = ({ device, setDisplayState, setSelectedDevice }) => {
           <img src={'/video-camera.png'} />
           <span>Last seen {deviceDetails.last_update} ago</span>
         </div>
-        <div>Heart Rate</div>
-        <div>SPO2</div>
-        <div>Temperature</div>
+        <ParamBox data={hrarr} type={'hr'}>
+          Heart Rate
+        </ParamBox>
+        <ParamBox data={sparr} type={'sp'}>
+          SPO2
+        </ParamBox>
+        <ParamBox data={temparr} type={'temp'}>
+          Temperature
+        </ParamBox>
       </div>
     </div>
   )

@@ -71,7 +71,7 @@ const Login = () => {
     if (getItem("access", "session") == undefined) setDisplayState(1)
     else if (getItem("access", "session").length > 9) setDisplayState(2)
     else setDisplayState(100)
-  }, [])
+  }, []) //eslint-disable-line
 
   if (displayState == 0) return <div>Loading...</div>
   else if (displayState == 1) {
@@ -79,6 +79,7 @@ const Login = () => {
       <div className={classes.container}>
         <div className={classes.box}>
           <div className={classes.left}>
+            {/* eslint-disable-next-line */}
             <img src='/login.jpg' className={classes.banner} />
           </div>
 
