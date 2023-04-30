@@ -64,5 +64,13 @@
   }
 }
 
-.container:hover > span {
+
+
+@media screen and (max-width: 600px) {
+  
+  .expanded{
+    height: auto !important;
+  }
+
+
 }
