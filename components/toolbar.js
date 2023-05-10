@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import styles from '../styles/Toolbar.module.css'
 
-const Toolbar = ({ user }) => {
+const Toolbar = ({ user, pageState }) => {
   if (user) {
     OneSignal.push(function () {
       OneSignal.setExternalUserId(user.email)
@@ -75,8 +75,17 @@ const Toolbar = ({ user }) => {
                 : `${styles.bar3}`
             }></div>
         </div>
-        <li>Add Wheelchair</li>
-        <li> View Wheelchairs</li>
+        <li
+          onClick={() => {
+            pageState(0)
+            setNavMenuStatus(false)
+          }}>
+          Add Wheelchair
+        </li>
+        <li onClick={() => {
+          pageState(1)
+          setNavMenuStatus(false)
+        }} > View Wheelchairs</li>
         <li>Delete Wheelchair</li>
       </ul>
 

@@ -24,7 +24,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     userDetails
-      .then((res) => {
+      .then(res => {
         setUser(res)
 
         if (res.devices.length < 1) {
@@ -33,7 +33,7 @@ export default function Dashboard() {
           setPageState(1)
         }
       })
-      .catch((e) => {
+      .catch(e => {
         removeItem('access', 'session')
         if (e.type == 'auth_error') Router.push('/')
       })
@@ -42,12 +42,13 @@ export default function Dashboard() {
   let dashboardData
 
   if (pageState < 0) dashboardData = <Loading />
-  else if (pageState == 0) dashboardData = <Add />
-  else if (pageState == 1) dashboardData = <Devices user={user} />
+  else if (pageState == 0) dashboardData = <Add user={user} />
+  else if (pageState == 1)
+    dashboardData = <Devices user={user} pageState={setPageState} />
 
   return (
     <div className={styles.container}>
-      <Toolbar user={user} />
+      <Toolbar user={user} pageState={setPageState} />
       {dashboardData}
     </div>
   )
