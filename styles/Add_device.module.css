@@ -118,3 +118,10 @@
   font-size: 1.2em;
   color: var(--prim-dark);
 }
+
+@media screen and (max-width: 600px) {
+  .dialogBox {
+    width: 80%;
+    height: 80%;
+  }
+}
