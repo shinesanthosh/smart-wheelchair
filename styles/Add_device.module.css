@@ -10,18 +10,18 @@
   cursor: pointer;
 }
 
-.text{
-    color: #999;
-    margin: 2% 5%;
-    font-size: 1.5em;
+.text {
+  color: #999;
+  margin: 2% 5%;
+  font-size: 1.5em;
 }
 
-.icon{
-    font-size: 4em;
-    color: #999;
+.icon {
+  font-size: 4em;
+  color: #999;
 }
 
-.addDeviceFormContainer{
+.addDeviceFormContainer {
   /* Make it a dialog box with overlay and float  */
   position: absolute;
   top: 0;
@@ -29,15 +29,14 @@
   z-index: 100;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  
-
+  transition: 0.3s;
 }
 
-.dialogBox{
+.dialogBox {
   width: 50%;
   height: 50%;
   background-color: white;
@@ -47,9 +46,18 @@
   justify-content: space-around;
   align-items: center;
   padding: 2% 5%;
+  transition: 0.3s;
 }
 
-.input{
+.hiddForm {
+  background-color: #0000;
+  z-index: -100;
+}
+
+.hiddDialog {
+  transform: translateY(-200%);
+}
+.input {
   width: 80%;
   height: 10%;
   border: none;
@@ -58,17 +66,22 @@
   font-size: 1.2em;
   padding: 2% 5%;
   transition: 0.3s;
-
 }
 
-.input:focus{
+.input:focus {
   border-bottom: 1px solid var(--prim-light);
-
 }
 
-.button{
+.btnContainer {
   width: 100%;
   height: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  width: 40%;
+  height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -77,15 +90,26 @@
   transition: 0.3s;
   font-size: 1.2em;
   border: 3px solid var(--prim-dark);
-  color: var(--prim-dark)
+  color: var(--prim-dark);
 }
 
-.button:hover{
+.redBtn {
+  background: #fff;
+  border: 3px solid #f00;
+  color: #f00;
+}
+
+.button:hover {
   background: var(--prim-dark);
   color: #fff;
 }
 
-.respMsg{
+.redBtn:hover {
+  background: #f00;
+  color: #fff;
+}
+
+.respMsg {
   width: 100%;
   height: 10%;
   display: flex;
